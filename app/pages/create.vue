@@ -1,0 +1,16 @@
+<template>
+  <div>
+    <h1 class="text-3xl font-bold mb-6">Создание пользователя</h1>
+    <UserForm @submit="handleCreate" />
+  </div>
+</template>
+
+<script setup lang="ts">
+const usersStore = useUsersStore()
+const router = useRouter()
+
+const handleCreate = (userData: any) => {
+  usersStore.createUser(userData)
+  router.push('/')
+}
+</script>
