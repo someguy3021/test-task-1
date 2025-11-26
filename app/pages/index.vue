@@ -4,3 +4,6 @@
     <UserTable />
   </div>
 </template>
+
+<script>
+</script>

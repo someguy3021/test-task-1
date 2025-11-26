@@ -70,6 +70,7 @@
 
 <script setup lang="ts">
 import { User } from '~/shared/types/user'
+import { useUsersStore } from '~/stores/users'
 
 const usersStore = useUsersStore()
 const search = ref('')

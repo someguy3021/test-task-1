@@ -58,7 +58,7 @@
 </template>
 
 <script setup lang="ts">
-import { User, UserFormData } from '~/shared/types/user'
+import { type User, type UserFormData } from '~/shared/types/user'
 
 interface Props {
   user?: User

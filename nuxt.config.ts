@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  srcDir: 'app/',
   modules: [
     '@nuxt/eslint',
     '@pinia/nuxt',
@@ -26,9 +27,21 @@ export default defineNuxtConfig({
       'process.env.DEBUG': false
     }
   },
+
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+    {
+      path: '~/features',
+      pathPrefix: false,
+      prefix: '' // можно указать префикс, но мы оставим пустым
+    }
+  ],
   
   // Дополнительные настройки для TypeScript
   typescript: {
     typeCheck: true
-  }
+  },
 })
