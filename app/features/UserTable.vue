@@ -21,13 +21,13 @@
         <v-icon
           size="small"
           class="me-2"
-          @click="editUser(item.raw)"
+          @click="editUser(item)"
         >
           mdi-pencil
         </v-icon>
         <v-icon
           size="small"
-          @click="deleteUser(item.raw)"
+          @click="deleteUser(item)"
         >
           mdi-delete
         </v-icon>
