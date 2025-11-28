@@ -1,10 +1,5 @@
 <template>
   <div class="user-create">
-    <v-card>
-      <v-card-title>
-        <h1 class="text-2xl font-bold">Создание пользователя</h1>
-      </v-card-title>
-      
       <v-card-text>
         <UserForm 
           @submit="handleCreate" 
@@ -12,7 +7,6 @@
           :loading="loading"
         />
       </v-card-text>
-    </v-card>
   </div>
 </template>
 
