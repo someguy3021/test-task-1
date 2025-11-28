@@ -17,6 +17,7 @@
       @update:items-per-page="itemsPerPage = $event"
       @update:page="page = $event"
       items-per-page-text="Количество элементов на странице:"
+      class="russian-pagination"
     >
       <template #item.actions="{ item }">
         <v-icon
@@ -73,6 +74,12 @@
 import { User, UserFormData } from '~/shared/types/user'
 import { useUsersStore } from '~/stores/users'
 
+interface DataTableHeader {
+  title: string
+  key: string
+  sortable?: boolean
+}
+
 const usersStore = useUsersStore()
 const search = ref('')
 const page = ref(1)
@@ -82,7 +89,7 @@ const deleteDialog = ref(false)
 const editingUser = ref<User | null>(null)
 const userToDelete = ref<User | null>(null)
 
-const headers = [
+const headers: DataTableHeader[] = [
   { title: 'ФИО', key: 'fullName', sortable: true },
   { title: 'Дата рождения', key: 'dateOfBirth', sortable: true },
   { title: 'Email', key: 'email' },
@@ -100,6 +107,29 @@ const filteredUsers = computed(() => {
     user.phone.includes(searchLower) ||
     user.dateOfBirth.includes(searchLower)
   )
+})
+
+// Функция для обновления текста пагинации
+const updatePaginationText = () => {
+  nextTick(() => {
+    const infoDiv = document.querySelector('.v-data-table-footer__info')
+    if (infoDiv) {
+      const text = infoDiv.textContent
+      if (text && text.includes('of')) {
+        const [range, total] = text.split(' of ')
+        infoDiv.textContent = `${range} из ${total}`
+      }
+    }
+  })
+}
+
+// Обновляем текст при изменении страницы или количества элементов
+watch([page, itemsPerPage, filteredUsers], () => {
+  updatePaginationText()
+})
+
+onMounted(() => {
+  updatePaginationText()
 })
 
 const editUser = (user: User) => {
