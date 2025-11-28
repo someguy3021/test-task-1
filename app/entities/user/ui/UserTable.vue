@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 md:p-6">
+  <div class="p-1 md:p-6">
     <v-text-field
       v-model="search"
       label="Поиск"
@@ -197,9 +197,3 @@ const confirmDelete = async () => {
   }
 }
 </script>
-
-<style scoped>
-.russian-pagination :deep(.v-data-table-footer__info) {
-  font-size: 0.875rem;
-}
-</style>
