@@ -23,6 +23,13 @@ export const useUsersStore = defineStore('users', () => {
       dateOfBirth: '1995-07-22',
       email: 'sidorov@example.com',
       phone: '+7-999-345-67-89'
+    },
+    {
+      id: '4',
+      fullName: 'Еще один тестовый пользователь',
+      dateOfBirth: '1993-07-22',
+      email: 'user@example.com',
+      phone: '+7-999-345-67-23'
     }
   ])
 

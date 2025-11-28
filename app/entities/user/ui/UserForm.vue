@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      <span class="text-h5">{{ isEdit ? 'Редактирование' : 'Создание' }} пользователя</span>
+      <span class="text-2xl font-bold">{{ isEdit ? 'Редактирование' : 'Создание' }} пользователя</span>
     </v-card-title>
     
     <v-card-text>

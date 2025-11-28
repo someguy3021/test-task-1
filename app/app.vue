@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar color="primary" prominent>
-      <v-app-bar-title class="text-white">User Management App</v-app-bar-title>
+      <v-app-bar-title class="text-white">Менеджер пользователей</v-app-bar-title>
       <v-spacer/>
       <v-btn 
         icon 

@@ -1,13 +1,14 @@
 <template>
   <div class="user-list">
     <v-card>
-      <v-card-title class="d-flex align-center">
+      <v-card-title class="d-flex flex-column flex-md-row align-start align-md-center gap-2">
         <h1 class="text-2xl font-bold">Список пользователей</h1>
-        <v-spacer />
+        <v-spacer class="d-none d-md-flex" />
         <v-btn 
           color="primary" 
           to="/create"
           prepend-icon="mdi-account-plus"
+          class="align-self-stretch align-self-md-auto"
         >
           Создать пользователя
         </v-btn>
@@ -21,8 +22,7 @@
 </template>
 
 <script setup lang="ts">
-// Этот компонент-обертка может содержать дополнительную логику для страницы списка
-// Например, фильтры, экспорт данных и т.д.
+
 </script>
 
 <style scoped>
