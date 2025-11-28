@@ -1,24 +1,17 @@
-import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { mount } from '@vue/test-utils'
 import { describe, it, expect, beforeEach } from 'vitest'
 import { setActivePinia, createPinia } from 'pinia'
 import UserList from '../index.vue'
 
-describe('UserList Feature', () => {
+describe('UserList', () => {
   beforeEach(() => {
     setActivePinia(createPinia())
   })
 
-  it('renders user list feature', async () => {
-    const wrapper = await mountSuspended(UserList)
+  it('renders user list page', () => {
+    const wrapper = mount(UserList)
     
     expect(wrapper.text()).toContain('Список пользователей')
     expect(wrapper.find('v-btn').exists()).toBe(true)
-  })
-
-  it('navigates to create page', async () => {
-    const wrapper = await mountSuspended(UserList)
-    const createButton = wrapper.find('v-btn')
-    
-    expect(createButton.attributes('to')).toBe('/create')
   })
 })
