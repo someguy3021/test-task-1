@@ -10,52 +10,54 @@
       clearable
     />
 
-    <v-data-table
-      :headers="headers"
-      :items="filteredUsers"
-      :search="search"
-      :items-per-page="itemsPerPage"
-      :items-per-page-options="[10, 25, 50, 100]"
-      :page="page"
-      @update:items-per-page="itemsPerPage = $event"
-      @update:page="page = $event"
-      :mobile-breakpoint="0"
-      class="elevation-1 russian-pagination"
-      loading-text="Загрузка..."
-      no-data-text="Нет данных"
-      items-per-page-text="Элементов на странице:"
-    >
-      <template #item.dateOfBirth="{ item }">
-        {{ formatDate(item.dateOfBirth) }}
-      </template>
-      
-      <template #item.actions="{ item }">
-        <v-tooltip text="Редактировать">
-          <template v-slot:activator="{ props }">
-            <v-icon
-              size="small"
-              class="me-2"
-              v-bind="props"
-              @click="editUser(item)"
-            >
-              mdi-pencil
-            </v-icon>
-          </template>
-        </v-tooltip>
+    <div class="table-wrapper">
+      <v-data-table
+        :headers="headers"
+        :items="filteredUsers"
+        :search="search"
+        :items-per-page="itemsPerPage"
+        :items-per-page-options="[10, 25, 50, 100]"
+        :page="page"
+        @update:items-per-page="itemsPerPage = $event"
+        @update:page="page = $event"
+        :mobile-breakpoint="600"
+        class="elevation-1 russian-pagination mobile-table"
+        loading-text="Загрузка..."
+        no-data-text="Нет данных"
+        items-per-page-text="Элементов на странице:"
+      >
+        <template #item.dateOfBirth="{ item }">
+          {{ formatDate(item.dateOfBirth) }}
+        </template>
         
-        <v-tooltip text="Удалить">
-          <template v-slot:activator="{ props }">
-            <v-icon
-              size="small"
-              v-bind="props"
-              @click="deleteUser(item)"
-            >
-              mdi-delete
-            </v-icon>
-          </template>
-        </v-tooltip>
-      </template>
-    </v-data-table>
+        <template #item.actions="{ item }">
+          <v-tooltip text="Редактировать">
+            <template v-slot:activator="{ props }">
+              <v-icon
+                size="26px"
+                class="me-4"
+                v-bind="props"
+                @click="editUser(item)"
+              >
+                mdi-pencil
+              </v-icon>
+            </template>
+          </v-tooltip>
+          
+          <v-tooltip text="Удалить">
+            <template v-slot:activator="{ props }">
+              <v-icon
+                size="26px"
+                v-bind="props"
+                @click="deleteUser(item)"
+              >
+                mdi-delete
+              </v-icon>
+            </template>
+          </v-tooltip>
+        </template>
+      </v-data-table>
+    </div>
 
     <!-- Диалог редактирования -->
     <v-dialog v-model="editDialog" max-width="600px" persistent>
@@ -197,3 +199,7 @@ const confirmDelete = async () => {
   }
 }
 </script>
+
+<style scoped>
+
+</style>
