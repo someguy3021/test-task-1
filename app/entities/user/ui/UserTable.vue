@@ -25,6 +25,7 @@
         loading-text="Загрузка..."
         no-data-text="Нет данных"
         items-per-page-text="Элементов на странице:"
+        :sort-by-text="`Сортировка`"
       >
         <template #item.dateOfBirth="{ item }">
           {{ formatDate(item.dateOfBirth) }}
@@ -199,7 +200,3 @@ const confirmDelete = async () => {
   }
 }
 </script>
-
-<style scoped>
-
-</style>
