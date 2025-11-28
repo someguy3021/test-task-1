@@ -7,11 +7,12 @@
 
 <script setup lang="ts">
 import { useUsersStore } from '~/stores/users'
+import { UserFormData } from '~/shared/types/user'
 
 const usersStore = useUsersStore()
 const router = useRouter()
 
-const handleCreate = (userData: any) => {
+const handleCreate = (userData: UserFormData) => {
   usersStore.createUser(userData)
   router.push('/')
 }

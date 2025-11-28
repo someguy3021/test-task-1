@@ -69,7 +69,7 @@
 </template>
 
 <script setup lang="ts">
-import { User } from '~/shared/types/user'
+import { User, UserFormData } from '~/shared/types/user'
 import { useUsersStore } from '~/stores/users'
 
 const usersStore = useUsersStore()
@@ -111,7 +111,7 @@ const deleteUser = (user: User) => {
   deleteDialog.value = true
 }
 
-const handleEditSubmit = (userData: any) => {
+const handleEditSubmit = (userData: UserFormData) => {
   if (editingUser.value) {
     usersStore.updateUser(editingUser.value.id, userData)
     editDialog.value = false
