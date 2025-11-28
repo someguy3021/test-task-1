@@ -1,6 +1,25 @@
+import { mockNuxtImport } from '@nuxt/test-utils/runtime'
 import { vi } from 'vitest'
 
-// Базовые моки
-vi.stubGlobal('definePageMeta', vi.fn())
-vi.stubGlobal('useRouter', () => ({ push: vi.fn() }))
-vi.stubGlobal('navigateTo', vi.fn())
+// Mock Nuxt composables
+mockNuxtImport('useRouter', () => {
+  return () => ({
+    push: vi.fn(),
+    back: vi.fn(),
+    replace: vi.fn(),
+  })
+})
+
+mockNuxtImport('navigateTo', () => vi.fn())
+mockNuxtImport('definePageMeta', () => vi.fn())
+
+// Mock Vuetify if needed
+vi.stubGlobal('useNuxtApp', () => ({
+  $vuetify: {
+    theme: {
+      current: {
+        dark: false
+      }
+    }
+  }
+}))
