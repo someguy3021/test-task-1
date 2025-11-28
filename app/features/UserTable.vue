@@ -16,6 +16,7 @@
       :page="page"
       @update:items-per-page="itemsPerPage = $event"
       @update:page="page = $event"
+      items-per-page-text="Количество элементов на странице:"
     >
       <template #item.actions="{ item }">
         <v-icon
