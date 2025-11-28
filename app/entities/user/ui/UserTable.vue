@@ -26,7 +26,9 @@
         no-data-text="Нет данных"
         items-per-page-text="Элементов на странице:"
         :sort-by-text="`Сортировка`"
+        :show-select="false"
         select-strategy="single"
+        :hide-default-header="false"
       >
         <template #item.dateOfBirth="{ item }">
           {{ formatDate(item.dateOfBirth) }}
