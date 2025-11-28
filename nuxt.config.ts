@@ -10,18 +10,15 @@ export default defineNuxtConfig({
     'vuetify-nuxt-module'
   ],
   
-  // CSS конфигурация
   css: [
     'vuetify/lib/styles/main.sass',
     '@mdi/font/css/materialdesignicons.min.css'
   ],
   
-  // Build конфигурация
   build: {
     transpile: ['vuetify']
   },
   
-  // Vite конфигурация
   vite: {
     define: {
       'process.env.DEBUG': false
@@ -36,12 +33,19 @@ export default defineNuxtConfig({
     {
       path: '~/features',
       pathPrefix: false,
-      prefix: '' // можно указать префикс, но мы оставим пустым
+      prefix: ''
     }
   ],
   
-  // Дополнительные настройки для TypeScript
   typescript: {
     typeCheck: true
   },
+
+  imports: {
+    dirs: [
+      'stores',
+      'composables',
+      'utils'
+    ]
+  }
 })
