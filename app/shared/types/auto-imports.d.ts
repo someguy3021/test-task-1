@@ -1,7 +1,7 @@
 // Global imports for composables and utilities
 declare global {
   // Composables
-  const useUserValidation: typeof import('~/shared/utils/validation')['useUserValidation']
+  const useUserValidation: typeof import('~/shared/lib/validation')['useUserValidation']
   const useUsersStore: typeof import('~/stores/users')['useUsersStore']
 
   // Nuxt imports
